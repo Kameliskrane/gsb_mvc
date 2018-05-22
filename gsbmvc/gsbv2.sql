@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
--- http://www.phpmyadmin.net
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 19 Avril 2018 à 18:30
--- Version du serveur :  5.6.17
--- Version de PHP :  5.5.12
+-- Généré le :  Mar 22 Mai 2018 à 18:46
+-- Version du serveur :  5.7.14
+-- Version de PHP :  5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de données :  `gsbv2`
@@ -26,10 +26,9 @@ SET time_zone = "+00:00";
 -- Structure de la table `etat`
 --
 
-CREATE TABLE IF NOT EXISTS `etat` (
+CREATE TABLE `etat` (
   `id` char(2) NOT NULL,
-  `libelle` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `libelle` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -48,15 +47,13 @@ INSERT INTO `etat` (`id`, `libelle`) VALUES
 -- Structure de la table `fichefrais`
 --
 
-CREATE TABLE IF NOT EXISTS `fichefrais` (
+CREATE TABLE `fichefrais` (
   `idVisiteur` char(4) NOT NULL,
   `mois` char(6) NOT NULL,
   `nbJustificatifs` int(11) DEFAULT NULL,
   `montantValide` decimal(10,2) DEFAULT NULL,
   `dateModif` date DEFAULT NULL,
-  `idEtat` char(2) DEFAULT 'CR',
-  PRIMARY KEY (`idVisiteur`,`mois`),
-  KEY `idEtat` (`idEtat`)
+  `idEtat` char(2) DEFAULT 'CR'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -249,10 +246,11 @@ INSERT INTO `fichefrais` (`idVisiteur`, `mois`, `nbJustificatifs`, `montantValid
 ('a131', '201705', 0, '3327.59', '2017-07-04', 'RB'),
 ('a131', '201706', 12, '6149.23', '2017-08-01', 'RB'),
 ('a131', '201707', 10, '5609.77', '2017-08-04', 'RB'),
-('a131', '201708', 5, '2601.64', '2017-11-08', 'VA'),
+('a131', '201708', 5, '2601.64', '2018-05-02', 'RB'),
 ('a131', '201709', 2, '3275.08', '2017-11-08', 'CL'),
 ('a131', '201710', 1, '5753.42', '2017-11-08', 'RB'),
-('a131', '201711', 0, '0.00', '2017-11-04', 'CL'),
+('a131', '201711', 0, '1709.38', '2018-05-22', 'VA'),
+('a131', '201805', 0, '0.00', '2018-05-21', 'CR'),
 ('a17', '201001', 1, '3787.66', '2010-03-03', 'RB'),
 ('a17', '201002', 6, '2234.16', '2010-04-05', 'RB'),
 ('a17', '201003', 1, '3399.94', '2010-05-06', 'RB'),
@@ -345,7 +343,7 @@ INSERT INTO `fichefrais` (`idVisiteur`, `mois`, `nbJustificatifs`, `montantValid
 ('a17', '201706', 1, '5942.00', '2017-08-03', 'RB'),
 ('a17', '201707', 10, '5266.65', '2017-11-08', 'RB'),
 ('a17', '201708', 9, '0.00', '2017-08-02', 'CR'),
-('a17', '201709', 1, '2707.14', '2017-10-06', 'VA'),
+('a17', '201709', 1, '2707.14', '2018-05-21', 'RB'),
 ('a17', '201710', 8, '0.00', '2017-10-05', 'CR'),
 ('a55', '201001', 6, '4725.66', '2010-03-08', 'RB'),
 ('a55', '201002', 12, '4499.41', '2010-04-02', 'RB'),
@@ -437,7 +435,7 @@ INSERT INTO `fichefrais` (`idVisiteur`, `mois`, `nbJustificatifs`, `montantValid
 ('a55', '201704', 4, '4096.14', '2017-06-04', 'RB'),
 ('a55', '201705', 9, '2438.96', '2017-07-04', 'RB'),
 ('a55', '201706', 8, '4696.27', '2017-08-05', 'RB'),
-('a55', '201707', 8, '3660.15', '2017-08-04', 'VA'),
+('a55', '201707', 8, '3660.15', '2018-05-21', 'RB'),
 ('a55', '201708', 8, '0.00', '2017-08-06', 'CR'),
 ('a55', '201709', 6, '2607.63', '2017-10-07', 'VA'),
 ('a55', '201710', 3, '0.00', '2017-10-01', 'CR'),
@@ -531,7 +529,7 @@ INSERT INTO `fichefrais` (`idVisiteur`, `mois`, `nbJustificatifs`, `montantValid
 ('a93', '201704', 8, '5265.47', '2017-06-02', 'RB'),
 ('a93', '201705', 3, '3591.95', '2017-07-05', 'RB'),
 ('a93', '201706', 9, '2854.83', '2017-08-01', 'RB'),
-('a93', '201707', 8, '5796.63', '2017-08-03', 'VA'),
+('a93', '201707', 8, '5796.63', '2018-04-19', 'RB'),
 ('a93', '201708', 10, '0.00', '2017-08-04', 'CR'),
 ('a93', '201709', 5, '3517.44', '2017-10-04', 'VA'),
 ('a93', '201710', 2, '0.00', '2017-10-04', 'CR'),
@@ -1036,9 +1034,9 @@ INSERT INTO `fichefrais` (`idVisiteur`, `mois`, `nbJustificatifs`, `montantValid
 ('b34', '201205', 5, '2223.73', '2012-07-01', 'RB'),
 ('b34', '201206', 11, '6470.73', '2012-08-03', 'RB'),
 ('b34', '201207', 9, '6083.30', '2012-09-03', 'RB'),
-('b34', '201208', 10, '5672.34', '2012-10-01', 'RB'),
-('b34', '201209', 8, '3369.69', '2012-11-04', 'RB');
+('b34', '201208', 10, '5672.34', '2012-10-01', 'RB');
 INSERT INTO `fichefrais` (`idVisiteur`, `mois`, `nbJustificatifs`, `montantValide`, `dateModif`, `idEtat`) VALUES
+('b34', '201209', 8, '3369.69', '2012-11-04', 'RB'),
 ('b34', '201210', 7, '3655.38', '2012-12-05', 'RB'),
 ('b34', '201211', 0, '4865.48', '2013-01-08', 'RB'),
 ('b34', '201212', 11, '5131.98', '2013-02-01', 'RB'),
@@ -2015,9 +2013,9 @@ INSERT INTO `fichefrais` (`idVisiteur`, `mois`, `nbJustificatifs`, `montantValid
 ('e24', '201507', 2, '5237.38', '2015-09-08', 'RB'),
 ('e24', '201508', 6, '6272.70', '2015-10-03', 'RB'),
 ('e24', '201509', 5, '4070.20', '2015-11-01', 'RB'),
-('e24', '201510', 11, '4812.08', '2015-12-05', 'RB'),
-('e24', '201511', 0, '3918.39', '2016-01-03', 'RB');
+('e24', '201510', 11, '4812.08', '2015-12-05', 'RB');
 INSERT INTO `fichefrais` (`idVisiteur`, `mois`, `nbJustificatifs`, `montantValide`, `dateModif`, `idEtat`) VALUES
+('e24', '201511', 0, '3918.39', '2016-01-03', 'RB'),
 ('e24', '201512', 3, '4684.81', '2016-02-08', 'RB'),
 ('e24', '201601', 6, '3165.38', '2016-03-06', 'RB'),
 ('e24', '201602', 9, '3448.82', '2016-04-02', 'RB'),
@@ -2415,7 +2413,7 @@ INSERT INTO `fichefrais` (`idVisiteur`, `mois`, `nbJustificatifs`, `montantValid
 ('e52', '201706', 9, '4645.30', '2017-08-03', 'RB'),
 ('e52', '201707', 2, '3833.91', '2017-08-03', 'VA'),
 ('e52', '201708', 11, '0.00', '2017-08-06', 'CR'),
-('e52', '201709', 9, '3332.93', '2017-10-08', 'VA'),
+('e52', '201709', 9, '3332.93', '2018-05-21', 'RB'),
 ('e52', '201710', 7, '0.00', '2017-10-03', 'CR'),
 ('f21', '201001', 9, '3287.82', '2010-03-04', 'RB'),
 ('f21', '201002', 5, '6665.31', '2010-04-05', 'RB'),
@@ -2706,11 +2704,10 @@ INSERT INTO `fichefrais` (`idVisiteur`, `mois`, `nbJustificatifs`, `montantValid
 -- Structure de la table `fraisforfait`
 --
 
-CREATE TABLE IF NOT EXISTS `fraisforfait` (
+CREATE TABLE `fraisforfait` (
   `id` char(3) NOT NULL,
   `libelle` char(20) DEFAULT NULL,
-  `montant` decimal(5,2) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `montant` decimal(5,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -2729,13 +2726,11 @@ INSERT INTO `fraisforfait` (`id`, `libelle`, `montant`) VALUES
 -- Structure de la table `lignefraisforfait`
 --
 
-CREATE TABLE IF NOT EXISTS `lignefraisforfait` (
+CREATE TABLE `lignefraisforfait` (
   `idVisiteur` char(4) NOT NULL,
   `mois` char(6) NOT NULL,
   `idFraisForfait` char(3) NOT NULL,
-  `quantite` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idVisiteur`,`mois`,`idFraisForfait`),
-  KEY `idFraisForfait` (`idFraisForfait`)
+  `quantite` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -3495,10 +3490,14 @@ INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quanti
 ('a131', '201710', 'KM', 991),
 ('a131', '201710', 'NUI', 17),
 ('a131', '201710', 'REP', 19),
-('a131', '201711', 'ETP', 0),
-('a131', '201711', 'KM', 0),
-('a131', '201711', 'NUI', 0),
-('a131', '201711', 'REP', 0),
+('a131', '201711', 'ETP', 4),
+('a131', '201711', 'KM', 999),
+('a131', '201711', 'NUI', 5),
+('a131', '201711', 'REP', 10),
+('a131', '201805', 'ETP', 8),
+('a131', '201805', 'KM', 899),
+('a131', '201805', 'NUI', 8),
+('a131', '201805', 'REP', 8),
 ('a17', '201001', 'ETP', 7),
 ('a17', '201001', 'KM', 658),
 ('a17', '201001', 'NUI', 6),
@@ -4540,12 +4539,12 @@ INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quanti
 ('a93', '201512', 'NUI', 10),
 ('a93', '201512', 'REP', 15),
 ('a93', '201601', 'ETP', 6),
-('a93', '201601', 'KM', 373),
+('a93', '201601', 'KM', 373);
+INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quantite`) VALUES
 ('a93', '201601', 'NUI', 20),
 ('a93', '201601', 'REP', 13),
 ('a93', '201602', 'ETP', 13),
-('a93', '201602', 'KM', 350);
-INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quantite`) VALUES
+('a93', '201602', 'KM', 350),
 ('a93', '201602', 'NUI', 3),
 ('a93', '201602', 'REP', 20),
 ('a93', '201603', 'ETP', 4),
@@ -6344,12 +6343,12 @@ INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quanti
 ('b28', '201405', 'KM', 519),
 ('b28', '201405', 'NUI', 4),
 ('b28', '201405', 'REP', 19),
-('b28', '201406', 'ETP', 6),
+('b28', '201406', 'ETP', 6);
+INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quantite`) VALUES
 ('b28', '201406', 'KM', 550),
 ('b28', '201406', 'NUI', 16),
 ('b28', '201406', 'REP', 12),
-('b28', '201407', 'ETP', 19);
-INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quantite`) VALUES
+('b28', '201407', 'ETP', 19),
 ('b28', '201407', 'KM', 837),
 ('b28', '201407', 'NUI', 6),
 ('b28', '201407', 'REP', 10),
@@ -8161,12 +8160,12 @@ INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quanti
 ('c14', '201301', 'KM', 967),
 ('c14', '201301', 'NUI', 12),
 ('c14', '201301', 'REP', 7),
-('c14', '201302', 'ETP', 10),
+('c14', '201302', 'ETP', 10);
+INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quantite`) VALUES
 ('c14', '201302', 'KM', 719),
 ('c14', '201302', 'NUI', 16),
 ('c14', '201302', 'REP', 3),
-('c14', '201303', 'ETP', 20);
-INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quantite`) VALUES
+('c14', '201303', 'ETP', 20),
 ('c14', '201303', 'KM', 464),
 ('c14', '201303', 'NUI', 19),
 ('c14', '201303', 'REP', 16),
@@ -9978,12 +9977,12 @@ INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quanti
 ('e22', '201109', 'KM', 955),
 ('e22', '201109', 'NUI', 10),
 ('e22', '201109', 'REP', 16),
-('e22', '201110', 'ETP', 18),
+('e22', '201110', 'ETP', 18);
+INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quantite`) VALUES
 ('e22', '201110', 'KM', 778),
 ('e22', '201110', 'NUI', 15),
 ('e22', '201110', 'REP', 5),
-('e22', '201111', 'ETP', 16);
-INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quantite`) VALUES
+('e22', '201111', 'ETP', 16),
 ('e22', '201111', 'KM', 331),
 ('e22', '201111', 'NUI', 3),
 ('e22', '201111', 'REP', 5),
@@ -11794,12 +11793,12 @@ INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quanti
 ('e52', '201005', 'ETP', 10),
 ('e52', '201005', 'KM', 483),
 ('e52', '201005', 'NUI', 17),
-('e52', '201005', 'REP', 7),
+('e52', '201005', 'REP', 7);
+INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quantite`) VALUES
 ('e52', '201006', 'ETP', 11),
 ('e52', '201006', 'KM', 728),
 ('e52', '201006', 'NUI', 14),
-('e52', '201006', 'REP', 18);
-INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quantite`) VALUES
+('e52', '201006', 'REP', 18),
 ('e52', '201007', 'ETP', 7),
 ('e52', '201007', 'KM', 440),
 ('e52', '201007', 'NUI', 15),
@@ -13287,17 +13286,15 @@ INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quanti
 -- Structure de la table `lignefraishorsforfait`
 --
 
-CREATE TABLE IF NOT EXISTS `lignefraishorsforfait` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `lignefraishorsforfait` (
+  `id` int(11) NOT NULL,
   `idVisiteur` char(4) NOT NULL,
   `mois` char(6) NOT NULL,
   `libelle` varchar(100) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `montant` decimal(10,2) DEFAULT NULL,
-  `Etat` varchar(7) NOT NULL DEFAULT 'Validée',
-  PRIMARY KEY (`id`),
-  KEY `idVisiteur` (`idVisiteur`,`mois`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=103917 ;
+  `Etat` varchar(7) NOT NULL DEFAULT 'Validée'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `lignefraishorsforfait`
@@ -13876,8 +13873,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (570, 'a17', '201611', 'location salle conférence', '2016-11-23', '436.00', 'Validée'),
 (571, 'a17', '201611', 'location véhicule', '2016-11-26', '393.00', 'Validée'),
 (572, 'a17', '201612', 'location véhicule', '2016-12-03', '201.00', 'Validée'),
-(573, 'a17', '201612', 'Voyage SNCF', '2016-12-05', '138.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(573, 'a17', '201612', 'Voyage SNCF', '2016-12-05', '138.00', 'Validée'),
 (574, 'a17', '201701', 'location salle conférence', '2017-01-12', '650.00', 'Validée'),
 (575, 'a17', '201701', 'achat de matériel de papèterie', '2017-01-16', '28.00', 'Validée'),
 (576, 'a17', '201701', 'frais vestimentaire/représentation', '2017-01-13', '102.00', 'Validée'),
@@ -13889,7 +13885,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (582, 'a17', '201703', 'traiteur, alimentation, boisson', '2017-03-12', '425.00', 'Validée'),
 (583, 'a17', '201704', 'location salle conférence', '2017-04-06', '219.00', 'Validée'),
 (584, 'a17', '201704', 'rémunération intervenant/spécialiste', '2017-04-12', '986.00', 'Validée'),
-(585, 'a17', '201704', 'repas avec praticien', '2017-04-02', '34.00', 'Validée'),
+(585, 'a17', '201704', 'repas avec praticien', '2017-04-02', '34.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (586, 'a17', '201704', 'repas avec praticien', '2017-04-25', '44.00', 'Validée'),
 (587, 'a17', '201705', 'taxi', '2017-05-04', '80.00', 'Validée'),
 (588, 'a17', '201705', 'location véhicule', '2017-05-06', '380.00', 'Validée'),
@@ -14451,8 +14448,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (1144, 'a93', '201507', 'Voyage SNCF', '2015-07-09', '148.00', 'Validée'),
 (1145, 'a93', '201508', 'location véhicule', '2015-08-09', '291.00', 'Validée'),
 (1146, 'a93', '201508', 'achat de matériel de papèterie', '2015-08-21', '11.00', 'Validée'),
-(1147, 'a93', '201508', 'achat de matériel de papèterie', '2015-08-11', '24.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(1147, 'a93', '201508', 'achat de matériel de papèterie', '2015-08-11', '24.00', 'Validée'),
 (1148, 'a93', '201509', 'taxi', '2015-09-22', '72.00', 'Validée'),
 (1149, 'a93', '201509', 'location salle conférence', '2015-09-22', '506.00', 'Validée'),
 (1150, 'a93', '201510', 'achat de matériel de papèterie', '2015-10-18', '14.00', 'Validée'),
@@ -14478,7 +14474,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (1170, 'a93', '201603', 'achat de matériel de papèterie', '2016-03-25', '32.00', 'Validée'),
 (1171, 'a93', '201603', 'achat de matériel de papèterie', '2016-03-23', '44.00', 'Validée'),
 (1172, 'a93', '201603', 'location salle conférence', '2016-03-26', '234.00', 'Validée'),
-(1173, 'a93', '201603', 'taxi', '2016-03-17', '59.00', 'Validée'),
+(1173, 'a93', '201603', 'taxi', '2016-03-17', '59.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (1174, 'a93', '201604', 'location véhicule', '2016-04-06', '212.00', 'Validée'),
 (1175, 'a93', '201604', 'frais vestimentaire/représentation', '2016-04-04', '300.00', 'Validée'),
 (1176, 'a93', '201604', 'Voyage SNCF', '2016-04-19', '108.00', 'Validée'),
@@ -15023,8 +15020,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (1715, 'b16', '201408', 'Voyage SNCF', '2014-08-21', '50.00', 'Validée'),
 (1716, 'b16', '201409', 'location équipement vidéo/sonore', '2014-09-21', '710.00', 'Validée'),
 (1717, 'b16', '201409', 'location équipement vidéo/sonore', '2014-09-26', '822.00', 'Validée'),
-(1718, 'b16', '201410', 'Voyage SNCF', '2014-10-10', '55.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(1718, 'b16', '201410', 'Voyage SNCF', '2014-10-10', '55.00', 'Validée'),
 (1719, 'b16', '201410', 'location équipement vidéo/sonore', '2014-10-08', '146.00', 'Validée'),
 (1720, 'b16', '201410', 'location salle conférence', '2014-10-14', '275.00', 'Validée'),
 (1721, 'b16', '201411', 'location équipement vidéo/sonore', '2014-11-10', '740.00', 'Validée'),
@@ -15062,7 +15058,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (1753, 'b16', '201510', 'traiteur, alimentation, boisson', '2015-10-13', '324.00', 'Validée'),
 (1754, 'b16', '201510', 'achat de matériel de papèterie', '2015-10-08', '48.00', 'Validée'),
 (1755, 'b16', '201510', 'achat de matériel de papèterie', '2015-10-06', '37.00', 'Validée'),
-(1756, 'b16', '201511', 'location véhicule', '2015-11-10', '417.00', 'Validée'),
+(1756, 'b16', '201511', 'location véhicule', '2015-11-10', '417.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (1757, 'b16', '201511', 'rémunération intervenant/spécialiste', '2015-11-06', '440.00', 'Validée'),
 (1758, 'b16', '201511', 'location véhicule', '2015-11-13', '143.00', 'Validée'),
 (1759, 'b16', '201512', 'traiteur, alimentation, boisson', '2015-12-08', '317.00', 'Validée'),
@@ -15593,8 +15590,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (2284, 'b25', '201405', 'Voyage SNCF', '2014-05-04', '54.00', 'Validée'),
 (2285, 'b25', '201405', 'taxi', '2014-05-07', '57.00', 'Validée'),
 (2286, 'b25', '201406', 'Voyage SNCF', '2014-06-18', '96.00', 'Validée'),
-(2287, 'b25', '201406', 'rémunération intervenant/spécialiste', '2014-06-20', '644.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(2287, 'b25', '201406', 'rémunération intervenant/spécialiste', '2014-06-20', '644.00', 'Validée'),
 (2288, 'b25', '201406', 'location équipement vidéo/sonore', '2014-06-05', '378.00', 'Validée'),
 (2289, 'b25', '201406', 'location véhicule', '2014-06-17', '295.00', 'Validée'),
 (2290, 'b25', '201406', 'location salle conférence', '2014-06-21', '386.00', 'Validée'),
@@ -15647,7 +15643,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (2337, 'b25', '201509', 'location véhicule', '2015-09-14', '370.00', 'Validée'),
 (2338, 'b25', '201510', 'Voyage SNCF', '2015-10-10', '108.00', 'Validée'),
 (2339, 'b25', '201511', 'taxi', '2015-11-21', '54.00', 'Validée'),
-(2340, 'b25', '201511', 'traiteur, alimentation, boisson', '2015-11-25', '433.00', 'Validée'),
+(2340, 'b25', '201511', 'traiteur, alimentation, boisson', '2015-11-25', '433.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (2341, 'b25', '201511', 'achat de matériel de papèterie', '2015-11-05', '24.00', 'Validée'),
 (2342, 'b25', '201511', 'Voyage SNCF', '2015-11-12', '46.00', 'Validée'),
 (2343, 'b25', '201512', 'taxi', '2015-12-05', '21.00', 'Validée'),
@@ -16161,8 +16158,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (2851, 'b34', '201405', 'location véhicule', '2014-05-09', '107.00', 'Validée'),
 (2852, 'b34', '201405', 'achat de matériel de papèterie', '2014-05-28', '40.00', 'Validée'),
 (2853, 'b34', '201406', 'frais vestimentaire/représentation', '2014-06-21', '104.00', 'Validée'),
-(2854, 'b34', '201406', 'rémunération intervenant/spécialiste', '2014-06-23', '856.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(2854, 'b34', '201406', 'rémunération intervenant/spécialiste', '2014-06-23', '856.00', 'Validée'),
 (2855, 'b34', '201406', 'achat de matériel de papèterie', '2014-06-20', '42.00', 'Validée'),
 (2856, 'b34', '201406', 'rémunération intervenant/spécialiste', '2014-06-21', '671.00', 'Validée'),
 (2857, 'b34', '201406', 'repas avec praticien', '2014-06-10', '38.00', 'Validée'),
@@ -16229,7 +16225,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (2918, 'b34', '201511', 'taxi', '2015-11-13', '56.00', 'Validée'),
 (2919, 'b34', '201512', 'location véhicule', '2015-12-15', '40.00', 'Validée'),
 (2920, 'b34', '201601', 'Voyage SNCF', '2016-01-13', '106.00', 'Validée'),
-(2921, 'b34', '201602', 'achat de matériel de papèterie', '2016-02-22', '24.00', 'Validée'),
+(2921, 'b34', '201602', 'achat de matériel de papèterie', '2016-02-22', '24.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (2922, 'b34', '201603', 'repas avec praticien', '2016-03-17', '44.00', 'Validée'),
 (2923, 'b34', '201603', 'location salle conférence', '2016-03-16', '165.00', 'Validée'),
 (2924, 'b34', '201604', 'Voyage SNCF', '2016-04-13', '98.00', 'Validée'),
@@ -16734,8 +16731,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (3423, 'b50', '201411', 'frais vestimentaire/représentation', '2014-11-11', '78.00', 'Validée'),
 (3424, 'b50', '201412', 'frais vestimentaire/représentation', '2014-12-03', '231.00', 'Validée'),
 (3425, 'b50', '201412', 'location équipement vidéo/sonore', '2014-12-08', '118.00', 'Validée'),
-(3426, 'b50', '201501', 'frais vestimentaire/représentation', '2015-01-25', '154.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(3426, 'b50', '201501', 'frais vestimentaire/représentation', '2015-01-25', '154.00', 'Validée'),
 (3427, 'b50', '201501', 'traiteur, alimentation, boisson', '2015-01-10', '357.00', 'Validée'),
 (3428, 'b50', '201501', 'rémunération intervenant/spécialiste', '2015-01-24', '1106.00', 'Validée'),
 (3429, 'b50', '201501', 'location véhicule', '2015-01-24', '84.00', 'Validée'),
@@ -16812,7 +16808,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (3500, 'b50', '201701', 'rémunération intervenant/spécialiste', '2017-01-26', '1193.00', 'Validée'),
 (3501, 'b50', '201702', 'location salle conférence', '2017-02-04', '170.00', 'Validée'),
 (3502, 'b50', '201703', 'repas avec praticien', '2017-03-04', '42.00', 'Validée'),
-(3503, 'b50', '201703', 'achat de matériel de papèterie', '2017-03-22', '40.00', 'Validée'),
+(3503, 'b50', '201703', 'achat de matériel de papèterie', '2017-03-22', '40.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (3504, 'b50', '201703', 'location équipement vidéo/sonore', '2017-03-01', '638.00', 'Validée'),
 (3505, 'b50', '201704', 'location salle conférence', '2017-04-13', '488.00', 'Validée'),
 (3506, 'b50', '201704', 'taxi', '2017-04-07', '67.00', 'Validée'),
@@ -17307,8 +17304,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (3995, 'c14', '201504', 'taxi', '2015-04-27', '48.00', 'Validée'),
 (3996, 'c14', '201504', 'location véhicule', '2015-04-07', '124.00', 'Validée'),
 (3997, 'c14', '201504', 'location véhicule', '2015-04-11', '174.00', 'Validée'),
-(3998, 'c14', '201504', 'frais vestimentaire/représentation', '2015-04-11', '62.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(3998, 'c14', '201504', 'frais vestimentaire/représentation', '2015-04-11', '62.00', 'Validée'),
 (3999, 'c14', '201505', 'traiteur, alimentation, boisson', '2015-05-18', '159.00', 'Validée'),
 (4000, 'c14', '201505', 'frais vestimentaire/représentation', '2015-05-18', '294.00', 'Validée'),
 (4001, 'c14', '201505', 'traiteur, alimentation, boisson', '2015-05-23', '124.00', 'Validée'),
@@ -17400,7 +17396,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (4087, 'c3', '201003', 'taxi', '2010-03-17', '43.00', 'Validée'),
 (4088, 'c3', '201004', 'Voyage SNCF', '2010-04-28', '107.00', 'Validée'),
 (4089, 'c3', '201004', 'frais vestimentaire/représentation', '2010-04-09', '434.00', 'Validée'),
-(4090, 'c3', '201004', 'location équipement vidéo/sonore', '2010-04-19', '590.00', 'Validée'),
+(4090, 'c3', '201004', 'location équipement vidéo/sonore', '2010-04-19', '590.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (4091, 'c3', '201004', 'location équipement vidéo/sonore', '2010-04-06', '475.00', 'Validée'),
 (4092, 'c3', '201005', 'frais vestimentaire/représentation', '2010-05-09', '350.00', 'Validée'),
 (4093, 'c3', '201005', 'traiteur, alimentation, boisson', '2010-05-19', '187.00', 'Validée'),
@@ -17882,8 +17879,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (4569, 'c54', '201502', 'repas avec praticien', '2015-02-22', '47.00', 'Validée'),
 (4570, 'c54', '201502', 'taxi', '2015-02-15', '53.00', 'Validée'),
 (4571, 'c54', '201502', 'traiteur, alimentation, boisson', '2015-02-03', '367.00', 'Validée'),
-(4572, 'c54', '201502', 'taxi', '2015-02-04', '35.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(4572, 'c54', '201502', 'taxi', '2015-02-04', '35.00', 'Validée'),
 (4573, 'c54', '201502', 'location équipement vidéo/sonore', '2015-02-20', '313.00', 'Validée'),
 (4574, 'c54', '201503', 'achat de matériel de papèterie', '2015-03-06', '21.00', 'Validée'),
 (4575, 'c54', '201504', 'location salle conférence', '2015-04-19', '372.00', 'Validée'),
@@ -17988,7 +17984,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (4674, 'c54', '201708', 'achat de matériel de papèterie', '2017-08-16', '21.00', 'Validée'),
 (4675, 'd13', '201001', 'achat de matériel de papèterie', '2010-01-08', '49.00', 'Validée'),
 (4676, 'd13', '201001', 'location véhicule', '2010-01-02', '415.00', 'Validée'),
-(4677, 'd13', '201002', 'taxi', '2010-02-07', '22.00', 'Validée'),
+(4677, 'd13', '201002', 'taxi', '2010-02-07', '22.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (4678, 'd13', '201002', 'achat de matériel de papèterie', '2010-02-18', '47.00', 'Validée'),
 (4679, 'd13', '201002', 'location équipement vidéo/sonore', '2010-02-24', '503.00', 'Validée'),
 (4680, 'd13', '201003', 'frais vestimentaire/représentation', '2010-03-23', '87.00', 'Validée'),
@@ -18454,8 +18451,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (5140, 'd51', '201403', 'achat de matériel de papèterie', '2014-03-26', '21.00', 'Validée'),
 (5141, 'd51', '201403', 'traiteur, alimentation, boisson', '2014-03-16', '333.00', 'Validée'),
 (5142, 'd51', '201404', 'achat de matériel de papèterie', '2014-04-24', '25.00', 'Validée'),
-(5143, 'd51', '201404', 'location véhicule', '2014-04-03', '200.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(5143, 'd51', '201404', 'location véhicule', '2014-04-03', '200.00', 'Validée'),
 (5144, 'd51', '201404', 'location équipement vidéo/sonore', '2014-04-18', '469.00', 'Validée'),
 (5145, 'd51', '201405', 'achat de matériel de papèterie', '2014-05-07', '18.00', 'Validée'),
 (5146, 'd51', '201405', 'location équipement vidéo/sonore', '2014-05-13', '705.00', 'Validée'),
@@ -18574,7 +18570,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (5259, 'd51', '201708', 'rémunération intervenant/spécialiste', '2017-08-06', '946.00', 'Validée'),
 (5260, 'd51', '201708', 'location salle conférence', '2017-08-09', '302.00', 'Validée'),
 (5261, 'd51', '201708', 'rémunération intervenant/spécialiste', '2017-08-08', '939.00', 'Validée'),
-(5262, 'e22', '201001', 'taxi', '2010-01-26', '79.00', 'Validée'),
+(5262, 'e22', '201001', 'taxi', '2010-01-26', '79.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (5263, 'e22', '201001', 'rémunération intervenant/spécialiste', '2010-01-28', '330.00', 'Validée'),
 (5264, 'e22', '201001', 'taxi', '2010-01-25', '26.00', 'Validée'),
 (5265, 'e22', '201001', 'repas avec praticien', '2010-01-12', '44.00', 'Validée'),
@@ -19030,8 +19027,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (5715, 'e24', '201408', 'location véhicule', '2014-08-12', '330.00', 'Validée'),
 (5716, 'e24', '201408', 'rémunération intervenant/spécialiste', '2014-08-03', '386.00', 'Validée'),
 (5717, 'e24', '201409', 'location salle conférence', '2014-09-20', '618.00', 'Validée'),
-(5718, 'e24', '201409', 'Voyage SNCF', '2014-09-18', '47.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(5718, 'e24', '201409', 'Voyage SNCF', '2014-09-18', '47.00', 'Validée'),
 (5719, 'e24', '201409', 'repas avec praticien', '2014-09-05', '33.00', 'Validée'),
 (5720, 'e24', '201409', 'repas avec praticien', '2014-09-16', '30.00', 'Validée'),
 (5721, 'e24', '201409', 'achat de matériel de papèterie', '2014-09-05', '33.00', 'Validée'),
@@ -19161,7 +19157,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (5845, 'e39', '201004', 'repas avec praticien', '2010-04-12', '40.00', 'Validée'),
 (5846, 'e39', '201005', 'location salle conférence', '2010-05-14', '612.00', 'Validée'),
 (5847, 'e39', '201005', 'taxi', '2010-05-12', '44.00', 'Validée'),
-(5848, 'e39', '201006', 'rémunération intervenant/spécialiste', '2010-06-12', '576.00', 'Validée'),
+(5848, 'e39', '201006', 'rémunération intervenant/spécialiste', '2010-06-12', '576.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (5849, 'e39', '201007', 'traiteur, alimentation, boisson', '2010-07-25', '64.00', 'Validée'),
 (5850, 'e39', '201007', 'repas avec praticien', '2010-07-28', '48.00', 'Validée'),
 (5851, 'e39', '201008', 'location équipement vidéo/sonore', '2010-08-20', '138.00', 'Validée'),
@@ -19600,8 +19597,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (6284, 'e49', '201406', 'location salle conférence', '2014-06-22', '614.00', 'Validée'),
 (6285, 'e49', '201407', 'rémunération intervenant/spécialiste', '2014-07-06', '974.00', 'Validée'),
 (6286, 'e49', '201407', 'Voyage SNCF', '2014-07-02', '123.00', 'Validée'),
-(6287, 'e49', '201408', 'location véhicule', '2014-08-19', '433.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(6287, 'e49', '201408', 'location véhicule', '2014-08-19', '433.00', 'Validée'),
 (6288, 'e49', '201408', 'achat de matériel de papèterie', '2014-08-27', '14.00', 'Validée'),
 (6289, 'e49', '201408', 'location véhicule', '2014-08-06', '54.00', 'Validée'),
 (6290, 'e49', '201408', 'frais vestimentaire/représentation', '2014-08-13', '287.00', 'Validée'),
@@ -19743,7 +19739,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (6426, 'e5', '201005', 'Voyage SNCF', '2010-05-19', '63.00', 'Validée'),
 (6427, 'e5', '201006', 'achat de matériel de papèterie', '2010-06-12', '15.00', 'Validée'),
 (6428, 'e5', '201006', 'location salle conférence', '2010-06-13', '277.00', 'Validée'),
-(6429, 'e5', '201006', 'location véhicule', '2010-06-09', '334.00', 'Validée'),
+(6429, 'e5', '201006', 'location véhicule', '2010-06-09', '334.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (6430, 'e5', '201006', 'taxi', '2010-06-13', '43.00', 'Validée'),
 (6431, 'e5', '201006', 'location équipement vidéo/sonore', '2010-06-20', '436.00', 'Validée'),
 (6432, 'e5', '201007', 'traiteur, alimentation, boisson', '2010-07-25', '449.00', 'Validée'),
@@ -20173,8 +20170,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (6856, 'e52', '201307', 'location équipement vidéo/sonore', '2013-07-13', '756.00', 'Validée'),
 (6857, 'e52', '201307', 'traiteur, alimentation, boisson', '2013-07-05', '181.00', 'Validée'),
 (6858, 'e52', '201308', 'location véhicule', '2013-08-25', '296.00', 'Validée'),
-(6859, 'e52', '201308', 'location équipement vidéo/sonore', '2013-08-25', '449.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(6859, 'e52', '201308', 'location équipement vidéo/sonore', '2013-08-25', '449.00', 'Validée'),
 (6860, 'e52', '201308', 'frais vestimentaire/représentation', '2013-08-25', '269.00', 'Validée'),
 (6861, 'e52', '201309', 'location salle conférence', '2013-09-14', '505.00', 'Validée'),
 (6862, 'e52', '201309', 'achat de matériel de papèterie', '2013-09-15', '35.00', 'Validée'),
@@ -20330,7 +20326,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (7012, 'f21', '201004', 'traiteur, alimentation, boisson', '2010-04-19', '258.00', 'Validée'),
 (7013, 'f21', '201004', 'traiteur, alimentation, boisson', '2010-04-01', '257.00', 'Validée'),
 (7014, 'f21', '201004', 'frais vestimentaire/représentation', '2010-04-18', '80.00', 'Validée'),
-(7015, 'f21', '201005', 'Voyage SNCF', '2010-05-01', '39.00', 'Validée'),
+(7015, 'f21', '201005', 'Voyage SNCF', '2010-05-01', '39.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (7016, 'f21', '201005', 'frais vestimentaire/représentation', '2010-05-02', '132.00', 'Validée'),
 (7017, 'f21', '201006', 'traiteur, alimentation, boisson', '2010-06-05', '349.00', 'Validée'),
 (7018, 'f21', '201006', 'achat de matériel de papèterie', '2010-06-27', '48.00', 'Validée'),
@@ -20745,8 +20742,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (7427, 'f39', '201408', 'Voyage SNCF', '2014-08-13', '130.00', 'Validée'),
 (7428, 'f39', '201409', 'location véhicule', '2014-09-11', '416.00', 'Validée'),
 (7429, 'f39', '201410', 'Voyage SNCF', '2014-10-10', '79.00', 'Validée'),
-(7430, 'f39', '201410', 'frais vestimentaire/représentation', '2014-10-08', '166.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(7430, 'f39', '201410', 'frais vestimentaire/représentation', '2014-10-08', '166.00', 'Validée'),
 (7431, 'f39', '201411', 'location équipement vidéo/sonore', '2014-11-28', '617.00', 'Validée'),
 (7432, 'f39', '201411', 'location salle conférence', '2014-11-12', '650.00', 'Validée'),
 (7433, 'f39', '201411', 'Voyage SNCF', '2014-11-09', '47.00', 'Validée'),
@@ -20914,7 +20910,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (7595, 'f4', '201108', 'rémunération intervenant/spécialiste', '2011-08-08', '462.00', 'Validée'),
 (7596, 'f4', '201108', 'achat de matériel de papèterie', '2011-08-22', '42.00', 'Validée'),
 (7597, 'f4', '201108', 'location véhicule', '2011-08-18', '305.00', 'Validée'),
-(7598, 'f4', '201108', 'location équipement vidéo/sonore', '2011-08-02', '109.00', 'Validée'),
+(7598, 'f4', '201108', 'location équipement vidéo/sonore', '2011-08-02', '109.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (7599, 'f4', '201108', 'frais vestimentaire/représentation', '2011-08-09', '235.00', 'Validée'),
 (7600, 'f4', '201109', 'location véhicule', '2011-09-18', '390.00', 'Validée'),
 (7601, 'f4', '201109', 'Voyage SNCF', '2011-09-06', '41.00', 'Validée'),
@@ -21315,8 +21312,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (7996, 'a131', '201403', 'Voyage SNCF', '2014-03-02', '123.00', 'Validée'),
 (7997, 'a131', '201404', 'location équipement vidéo/sonore', '2014-04-01', '338.00', 'Validée'),
 (7998, 'a131', '201404', 'achat de matériel de papèterie', '2014-04-12', '45.00', 'Validée'),
-(7999, 'a131', '201405', 'taxi', '2014-05-25', '51.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(7999, 'a131', '201405', 'taxi', '2014-05-25', '51.00', 'Validée'),
 (8000, 'a131', '201405', 'location équipement vidéo/sonore', '2014-05-27', '820.00', 'Validée'),
 (8001, 'a131', '201406', 'location salle conférence', '2014-06-24', '593.00', 'Validée'),
 (8002, 'a131', '201406', 'location véhicule', '2014-06-04', '341.00', 'Validée'),
@@ -21496,7 +21492,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (8176, 'a17', '201103', 'Voyage SNCF', '2011-03-28', '83.00', 'Validée'),
 (8177, 'a17', '201103', 'frais vestimentaire/représentation', '2011-03-22', '146.00', 'Validée'),
 (8178, 'a17', '201104', 'Voyage SNCF', '2011-04-01', '59.00', 'Validée'),
-(8179, 'a17', '201105', 'traiteur, alimentation, boisson', '2011-05-07', '106.00', 'Validée'),
+(8179, 'a17', '201105', 'traiteur, alimentation, boisson', '2011-05-07', '106.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (8180, 'a17', '201105', 'location véhicule', '2011-05-21', '401.00', 'Validée'),
 (8181, 'a17', '201105', 'frais vestimentaire/représentation', '2011-05-05', '384.00', 'Validée'),
 (8182, 'a17', '201105', 'rémunération intervenant/spécialiste', '2011-05-19', '1121.00', 'Validée'),
@@ -21884,8 +21881,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (8564, 'a55', '201301', 'location salle conférence', '2013-01-04', '541.00', 'Validée'),
 (8565, 'a55', '201301', 'frais vestimentaire/représentation', '2013-01-09', '194.00', 'Validée'),
 (8566, 'a55', '201301', 'achat de matériel de papèterie', '2013-01-02', '16.00', 'Validée'),
-(8567, 'a55', '201301', 'location salle conférence', '2013-01-26', '251.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(8567, 'a55', '201301', 'location salle conférence', '2013-01-26', '251.00', 'Validée'),
 (8568, 'a55', '201302', 'Voyage SNCF', '2013-02-11', '135.00', 'Validée'),
 (8569, 'a55', '201303', 'traiteur, alimentation, boisson', '2013-03-03', '183.00', 'Validée'),
 (8570, 'a55', '201303', 'taxi', '2013-03-11', '78.00', 'Validée'),
@@ -22079,7 +22075,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (8758, 'a93', '201004', 'achat de matériel de papèterie', '2010-04-26', '44.00', 'Validée'),
 (8759, 'a93', '201005', 'traiteur, alimentation, boisson', '2010-05-26', '333.00', 'Validée'),
 (8760, 'a93', '201005', 'repas avec praticien', '2010-05-09', '48.00', 'Validée'),
-(8761, 'a93', '201005', 'traiteur, alimentation, boisson', '2010-05-06', '65.00', 'Validée'),
+(8761, 'a93', '201005', 'traiteur, alimentation, boisson', '2010-05-06', '65.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (8762, 'a93', '201005', 'repas avec praticien', '2010-05-10', '33.00', 'Validée'),
 (8763, 'a93', '201005', 'location salle conférence', '2010-05-03', '579.00', 'Validée'),
 (8764, 'a93', '201005', 'Voyage SNCF', '2010-05-09', '148.00', 'Validée'),
@@ -22455,8 +22452,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (9134, 'b13', '201203', 'taxi', '2012-03-10', '58.00', 'Validée'),
 (9135, 'b13', '201203', 'location équipement vidéo/sonore', '2012-03-09', '819.00', 'Validée'),
 (9136, 'b13', '201203', 'taxi', '2012-03-08', '63.00', 'Validée'),
-(9137, 'b13', '201203', 'traiteur, alimentation, boisson', '2012-03-09', '245.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(9137, 'b13', '201203', 'traiteur, alimentation, boisson', '2012-03-09', '245.00', 'Validée'),
 (9138, 'b13', '201204', 'traiteur, alimentation, boisson', '2012-04-10', '314.00', 'Validée'),
 (9139, 'b13', '201204', 'Voyage SNCF', '2012-04-24', '101.00', 'Validée'),
 (9140, 'b13', '201204', 'frais vestimentaire/représentation', '2012-04-20', '277.00', 'Validée'),
@@ -22665,7 +22661,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (9343, 'b13', '201706', 'location équipement vidéo/sonore', '2017-06-16', '323.00', 'Validée'),
 (9344, 'b13', '201706', 'Voyage SNCF', '2017-06-09', '92.00', 'Validée'),
 (9345, 'b13', '201706', 'rémunération intervenant/spécialiste', '2017-06-21', '451.00', 'Validée'),
-(9346, 'b13', '201707', 'location véhicule', '2017-07-09', '234.00', 'Validée'),
+(9346, 'b13', '201707', 'location véhicule', '2017-07-09', '234.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (9347, 'b13', '201708', 'traiteur, alimentation, boisson', '2017-08-02', '354.00', 'Validée'),
 (9348, 'b16', '201001', 'Voyage SNCF', '2010-01-09', '48.00', 'Validée'),
 (9349, 'b16', '201001', 'location salle conférence', '2010-01-13', '172.00', 'Validée'),
@@ -23023,8 +23020,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (9701, 'b19', '201102', 'rémunération intervenant/spécialiste', '2011-02-17', '1160.00', 'Validée'),
 (9702, 'b19', '201102', 'repas avec praticien', '2011-02-21', '30.00', 'Validée'),
 (9703, 'b19', '201103', 'location équipement vidéo/sonore', '2011-03-19', '816.00', 'Validée'),
-(9704, 'b19', '201104', 'repas avec praticien', '2011-04-08', '34.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(9704, 'b19', '201104', 'repas avec praticien', '2011-04-08', '34.00', 'Validée'),
 (9705, 'b19', '201104', 'achat de matériel de papèterie', '2011-04-11', '50.00', 'Validée'),
 (9706, 'b19', '201105', 'frais vestimentaire/représentation', '2011-05-04', '357.00', 'Validée'),
 (9707, 'b19', '201105', 'location équipement vidéo/sonore', '2011-05-16', '674.00', 'Validée'),
@@ -23249,7 +23245,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (9926, 'b19', '201707', 'location équipement vidéo/sonore', '2017-07-10', '140.00', 'Validée'),
 (9927, 'b19', '201707', 'Voyage SNCF', '2017-07-11', '91.00', 'Validée'),
 (9928, 'b19', '201707', 'repas avec praticien', '2017-07-27', '41.00', 'Validée'),
-(9929, 'b19', '201707', 'location salle conférence', '2017-07-15', '343.00', 'Validée'),
+(9929, 'b19', '201707', 'location salle conférence', '2017-07-15', '343.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (9930, 'b19', '201707', 'Voyage SNCF', '2017-07-18', '96.00', 'Validée'),
 (9931, 'b19', '201708', 'location véhicule', '2017-08-08', '378.00', 'Validée'),
 (9932, 'b19', '201708', 'location véhicule', '2017-08-20', '288.00', 'Validée'),
@@ -23593,8 +23590,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (10270, 'b28', '201108', 'repas avec praticien', '2011-08-13', '33.00', 'Validée'),
 (10271, 'b28', '201108', 'Voyage SNCF', '2011-08-09', '140.00', 'Validée'),
 (10272, 'b28', '201108', 'taxi', '2011-08-27', '42.00', 'Validée'),
-(10273, 'b28', '201108', 'location salle conférence', '2011-08-22', '295.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(10273, 'b28', '201108', 'location salle conférence', '2011-08-22', '295.00', 'Validée'),
 (10274, 'b28', '201108', 'frais vestimentaire/représentation', '2011-08-13', '202.00', 'Validée'),
 (10275, 'b28', '201108', 'location salle conférence', '2011-08-24', '274.00', 'Validée'),
 (10276, 'b28', '201109', 'Voyage SNCF', '2011-09-19', '128.00', 'Validée'),
@@ -23825,7 +23821,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (10501, 'b28', '201706', 'Voyage SNCF', '2017-06-23', '45.00', 'Validée'),
 (10502, 'b28', '201706', 'achat de matériel de papèterie', '2017-06-19', '29.00', 'Validée'),
 (10503, 'b28', '201706', 'frais vestimentaire/représentation', '2017-06-19', '164.00', 'Validée'),
-(10504, 'b28', '201707', 'taxi', '2017-07-22', '78.00', 'Validée'),
+(10504, 'b28', '201707', 'taxi', '2017-07-22', '78.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (10505, 'b28', '201708', 'achat de matériel de papèterie', '2017-08-01', '13.00', 'Validée'),
 (10506, 'b28', '201708', 'rémunération intervenant/spécialiste', '2017-08-10', '803.00', 'Validée'),
 (10507, 'b28', '201708', 'achat de matériel de papèterie', '2017-08-02', '48.00', 'Validée'),
@@ -24155,8 +24152,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (10831, 'b4', '201110', 'rémunération intervenant/spécialiste', '2011-10-13', '320.00', 'Validée'),
 (10832, 'b4', '201110', 'taxi', '2011-10-18', '32.00', 'Validée'),
 (10833, 'b4', '201111', 'taxi', '2011-11-27', '69.00', 'Validée'),
-(10834, 'b4', '201111', 'location salle conférence', '2011-11-15', '450.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(10834, 'b4', '201111', 'location salle conférence', '2011-11-15', '450.00', 'Validée'),
 (10835, 'b4', '201111', 'traiteur, alimentation, boisson', '2011-11-15', '165.00', 'Validée'),
 (10836, 'b4', '201112', 'frais vestimentaire/représentation', '2011-12-04', '271.00', 'Validée'),
 (10837, 'b4', '201112', 'Voyage SNCF', '2011-12-21', '135.00', 'Validée'),
@@ -24403,7 +24399,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (11078, 'b50', '201009', 'rémunération intervenant/spécialiste', '2010-09-19', '709.00', 'Validée'),
 (11079, 'b50', '201009', 'location équipement vidéo/sonore', '2010-09-21', '109.00', 'Validée'),
 (11080, 'b50', '201009', 'achat de matériel de papèterie', '2010-09-08', '23.00', 'Validée'),
-(11081, 'b50', '201010', 'frais vestimentaire/représentation', '2010-10-03', '344.00', 'Validée'),
+(11081, 'b50', '201010', 'frais vestimentaire/représentation', '2010-10-03', '344.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (11082, 'b50', '201010', 'taxi', '2010-10-03', '51.00', 'Validée'),
 (11083, 'b50', '201010', 'location équipement vidéo/sonore', '2010-10-24', '551.00', 'Validée'),
 (11084, 'b50', '201010', 'frais vestimentaire/représentation', '2010-10-11', '446.00', 'Validée'),
@@ -24721,8 +24718,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (11396, 'b59', '201106', 'Voyage SNCF', '2011-06-25', '117.00', 'Validée'),
 (11397, 'b59', '201106', 'frais vestimentaire/représentation', '2011-06-19', '292.00', 'Validée'),
 (11398, 'b59', '201107', 'location salle conférence', '2011-07-17', '340.00', 'Validée'),
-(11399, 'b59', '201107', 'location salle conférence', '2011-07-03', '207.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(11399, 'b59', '201107', 'location salle conférence', '2011-07-03', '207.00', 'Validée'),
 (11400, 'b59', '201107', 'location salle conférence', '2011-07-22', '190.00', 'Validée'),
 (11401, 'b59', '201107', 'location salle conférence', '2011-07-19', '354.00', 'Validée'),
 (11402, 'b59', '201107', 'location véhicule', '2011-07-04', '185.00', 'Validée'),
@@ -24983,7 +24979,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (11657, 'c14', '201106', 'location véhicule', '2011-06-20', '33.00', 'Validée'),
 (11658, 'c14', '201106', 'rémunération intervenant/spécialiste', '2011-06-07', '880.00', 'Validée'),
 (11659, 'c14', '201107', 'rémunération intervenant/spécialiste', '2011-07-13', '921.00', 'Validée'),
-(11660, 'c14', '201107', 'repas avec praticien', '2011-07-14', '42.00', 'Validée'),
+(11660, 'c14', '201107', 'repas avec praticien', '2011-07-14', '42.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (11661, 'c14', '201108', 'frais vestimentaire/représentation', '2011-08-26', '111.00', 'Validée'),
 (11662, 'c14', '201108', 'location véhicule', '2011-08-26', '408.00', 'Validée'),
 (11663, 'c14', '201108', 'Voyage SNCF', '2011-08-01', '127.00', 'Validée'),
@@ -25286,8 +25283,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (11960, 'c3', '201202', 'location équipement vidéo/sonore', '2012-02-01', '816.00', 'Validée'),
 (11961, 'c3', '201202', 'frais vestimentaire/représentation', '2012-02-04', '343.00', 'Validée'),
 (11962, 'c3', '201202', 'repas avec praticien', '2012-02-22', '38.00', 'Validée'),
-(11963, 'c3', '201203', 'rémunération intervenant/spécialiste', '2012-03-25', '753.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(11963, 'c3', '201203', 'rémunération intervenant/spécialiste', '2012-03-25', '753.00', 'Validée'),
 (11964, 'c3', '201203', 'repas avec praticien', '2012-03-17', '44.00', 'Validée'),
 (11965, 'c3', '201204', 'Voyage SNCF', '2012-04-14', '65.00', 'Validée'),
 (11966, 'c3', '201204', 'traiteur, alimentation, boisson', '2012-04-06', '136.00', 'Validée'),
@@ -25565,7 +25561,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (12238, 'c54', '201012', 'traiteur, alimentation, boisson', '2010-12-10', '158.00', 'Validée'),
 (12239, 'c54', '201101', 'location salle conférence', '2011-01-08', '251.00', 'Validée'),
 (12240, 'c54', '201102', 'traiteur, alimentation, boisson', '2011-02-01', '414.00', 'Validée'),
-(12241, 'c54', '201102', 'traiteur, alimentation, boisson', '2011-02-15', '220.00', 'Validée'),
+(12241, 'c54', '201102', 'traiteur, alimentation, boisson', '2011-02-15', '220.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (12242, 'c54', '201102', 'location salle conférence', '2011-02-13', '189.00', 'Validée'),
 (12243, 'c54', '201102', 'location véhicule', '2011-02-02', '401.00', 'Validée'),
 (12244, 'c54', '201102', 'rémunération intervenant/spécialiste', '2011-02-06', '1198.00', 'Validée'),
@@ -25854,8 +25851,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (12527, 'd13', '201103', 'Voyage SNCF', '2011-03-24', '33.00', 'Validée'),
 (12528, 'd13', '201103', 'location équipement vidéo/sonore', '2011-03-28', '317.00', 'Validée'),
 (12529, 'd13', '201104', 'Voyage SNCF', '2011-04-23', '146.00', 'Validée'),
-(12530, 'd13', '201104', 'repas avec praticien', '2011-04-08', '32.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(12530, 'd13', '201104', 'repas avec praticien', '2011-04-08', '32.00', 'Validée'),
 (12531, 'd13', '201105', 'Voyage SNCF', '2011-05-11', '111.00', 'Validée'),
 (12532, 'd13', '201105', 'location véhicule', '2011-05-22', '358.00', 'Validée'),
 (12533, 'd13', '201105', 'repas avec praticien', '2011-05-08', '37.00', 'Validée'),
@@ -26144,7 +26140,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (12816, 'd51', '201005', 'location équipement vidéo/sonore', '2010-05-11', '311.00', 'Validée'),
 (12817, 'd51', '201005', 'taxi', '2010-05-26', '75.00', 'Validée'),
 (12818, 'd51', '201006', 'Voyage SNCF', '2010-06-23', '146.00', 'Validée'),
-(12819, 'd51', '201008', 'achat de matériel de papèterie', '2010-08-08', '14.00', 'Validée'),
+(12819, 'd51', '201008', 'achat de matériel de papèterie', '2010-08-08', '14.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (12820, 'd51', '201008', 'taxi', '2010-08-14', '51.00', 'Validée'),
 (12821, 'd51', '201009', 'taxi', '2010-09-08', '46.00', 'Validée'),
 (12822, 'd51', '201010', 'location véhicule', '2010-10-28', '106.00', 'Validée'),
@@ -26423,8 +26420,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (13095, 'e22', '201012', 'location salle conférence', '2010-12-06', '343.00', 'Validée'),
 (13096, 'e22', '201012', 'traiteur, alimentation, boisson', '2010-12-18', '331.00', 'Validée'),
 (13097, 'e22', '201012', 'rémunération intervenant/spécialiste', '2010-12-05', '1107.00', 'Validée'),
-(13098, 'e22', '201012', 'repas avec praticien', '2010-12-19', '50.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(13098, 'e22', '201012', 'repas avec praticien', '2010-12-19', '50.00', 'Validée'),
 (13099, 'e22', '201101', 'location salle conférence', '2011-01-09', '233.00', 'Validée'),
 (13100, 'e22', '201102', 'taxi', '2011-02-20', '30.00', 'Validée'),
 (13101, 'e22', '201102', 'taxi', '2011-02-28', '75.00', 'Validée'),
@@ -26726,7 +26722,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (13397, 'e24', '201102', 'Voyage SNCF', '2011-02-22', '86.00', 'Validée'),
 (13398, 'e24', '201102', 'repas avec praticien', '2011-02-17', '31.00', 'Validée'),
 (13399, 'e24', '201102', 'location équipement vidéo/sonore', '2011-02-13', '205.00', 'Validée'),
-(13400, 'e24', '201102', 'taxi', '2011-02-15', '79.00', 'Validée'),
+(13400, 'e24', '201102', 'taxi', '2011-02-15', '79.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (13401, 'e24', '201102', 'frais vestimentaire/représentation', '2011-02-18', '365.00', 'Validée'),
 (13402, 'e24', '201103', 'Voyage SNCF', '2011-03-07', '68.00', 'Validée'),
 (13403, 'e24', '201103', 'traiteur, alimentation, boisson', '2011-03-07', '162.00', 'Validée'),
@@ -26987,8 +26984,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (13658, 'e24', '201708', 'rémunération intervenant/spécialiste', '2017-08-11', '962.00', 'Validée'),
 (13659, 'e24', '201708', 'frais vestimentaire/représentation', '2017-08-06', '156.00', 'Validée'),
 (13660, 'e39', '201001', 'repas avec praticien', '2010-01-23', '44.00', 'Validée'),
-(13661, 'e39', '201001', 'rémunération intervenant/spécialiste', '2010-01-15', '501.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(13661, 'e39', '201001', 'rémunération intervenant/spécialiste', '2010-01-15', '501.00', 'Validée'),
 (13662, 'e39', '201001', 'location salle conférence', '2010-01-03', '172.00', 'Validée'),
 (13663, 'e39', '201001', 'location véhicule', '2010-01-18', '51.00', 'Validée'),
 (13664, 'e39', '201002', 'location véhicule', '2010-02-07', '408.00', 'Validée'),
@@ -27301,7 +27297,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (13971, 'e49', '201012', 'location véhicule', '2010-12-23', '355.00', 'Validée'),
 (13972, 'e49', '201101', 'location salle conférence', '2011-01-28', '567.00', 'Validée'),
 (13973, 'e49', '201102', 'repas avec praticien', '2011-02-16', '34.00', 'Validée'),
-(13974, 'e49', '201102', 'frais vestimentaire/représentation', '2011-02-08', '307.00', 'Validée'),
+(13974, 'e49', '201102', 'frais vestimentaire/représentation', '2011-02-08', '307.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (13975, 'e49', '201102', 'taxi', '2011-02-24', '47.00', 'Validée'),
 (13976, 'e49', '201102', 'achat de matériel de papèterie', '2011-02-19', '26.00', 'Validée'),
 (13977, 'e49', '201102', 'achat de matériel de papèterie', '2011-02-11', '42.00', 'Validée'),
@@ -27551,8 +27548,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (14221, 'e49', '201703', 'Voyage SNCF', '2017-03-28', '95.00', 'Validée'),
 (14222, 'e49', '201704', 'location véhicule', '2017-04-16', '437.00', 'Validée'),
 (14223, 'e49', '201704', 'location équipement vidéo/sonore', '2017-04-17', '321.00', 'Validée'),
-(14224, 'e49', '201704', 'achat de matériel de papèterie', '2017-04-20', '12.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(14224, 'e49', '201704', 'achat de matériel de papèterie', '2017-04-20', '12.00', 'Validée'),
 (14225, 'e49', '201704', 'frais vestimentaire/représentation', '2017-04-28', '278.00', 'Validée'),
 (14226, 'e49', '201704', 'traiteur, alimentation, boisson', '2017-04-01', '142.00', 'Validée'),
 (14227, 'e49', '201705', 'location véhicule', '2017-05-06', '40.00', 'Validée'),
@@ -27882,7 +27878,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (14551, 'e52', '201004', 'achat de matériel de papèterie', '2010-04-28', '18.00', 'Validée'),
 (14552, 'e52', '201004', 'Voyage SNCF', '2010-04-03', '98.00', 'Validée'),
 (14553, 'e52', '201004', 'location véhicule', '2010-04-05', '424.00', 'Validée'),
-(14554, 'e52', '201005', 'achat de matériel de papèterie', '2010-05-12', '47.00', 'Validée'),
+(14554, 'e52', '201005', 'achat de matériel de papèterie', '2010-05-12', '47.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (14555, 'e52', '201005', 'rémunération intervenant/spécialiste', '2010-05-10', '455.00', 'Validée'),
 (14556, 'e52', '201006', 'repas avec praticien', '2010-06-15', '44.00', 'Validée'),
 (14557, 'e52', '201007', 'repas avec praticien', '2010-07-27', '48.00', 'Validée'),
@@ -28117,8 +28114,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (14786, 'e52', '201705', 'rémunération intervenant/spécialiste', '2017-05-05', '756.00', 'Validée'),
 (14787, 'e52', '201706', 'frais vestimentaire/représentation', '2017-06-17', '436.00', 'Validée'),
 (14788, 'e52', '201707', 'rémunération intervenant/spécialiste', '2017-07-24', '377.00', 'Validée'),
-(14789, 'e52', '201707', 'Voyage SNCF', '2017-07-08', '36.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(14789, 'e52', '201707', 'Voyage SNCF', '2017-07-08', '36.00', 'Validée'),
 (14790, 'e52', '201708', 'traiteur, alimentation, boisson', '2017-08-02', '256.00', 'Validée'),
 (14791, 'e52', '201708', 'rémunération intervenant/spécialiste', '2017-08-09', '271.00', 'Validée'),
 (14792, 'e52', '201708', 'rémunération intervenant/spécialiste', '2017-08-22', '765.00', 'Validée'),
@@ -28458,7 +28454,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (15126, 'f39', '201201', 'rémunération intervenant/spécialiste', '2012-01-21', '259.00', 'Validée'),
 (15127, 'f39', '201201', 'rémunération intervenant/spécialiste', '2012-01-24', '629.00', 'Validée'),
 (15128, 'f39', '201201', 'rémunération intervenant/spécialiste', '2012-01-25', '1168.00', 'Validée'),
-(15129, 'f39', '201201', 'rémunération intervenant/spécialiste', '2012-01-13', '1015.00', 'Validée'),
+(15129, 'f39', '201201', 'rémunération intervenant/spécialiste', '2012-01-13', '1015.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (15130, 'f39', '201202', 'rémunération intervenant/spécialiste', '2012-02-02', '1022.00', 'Validée'),
 (15131, 'f39', '201203', 'traiteur, alimentation, boisson', '2012-03-07', '63.00', 'Validée'),
 (15132, 'f39', '201203', 'repas avec praticien', '2012-03-14', '43.00', 'Validée'),
@@ -28682,8 +28679,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (15350, 'f39', '201706', 'repas avec praticien', '2017-06-27', '30.00', 'Validée'),
 (15351, 'f39', '201706', 'location équipement vidéo/sonore', '2017-06-27', '242.00', 'Validée'),
 (15352, 'f39', '201706', 'repas avec praticien', '2017-06-28', '34.00', 'Validée'),
-(15353, 'f39', '201707', 'Voyage SNCF', '2017-07-19', '148.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(15353, 'f39', '201707', 'Voyage SNCF', '2017-07-19', '148.00', 'Validée'),
 (15354, 'f39', '201707', 'location équipement vidéo/sonore', '2017-07-17', '246.00', 'Validée'),
 (15355, 'f39', '201707', 'frais vestimentaire/représentation', '2017-07-20', '346.00', 'Validée'),
 (15356, 'f39', '201707', 'achat de matériel de papèterie', '2017-07-24', '11.00', 'Validée'),
@@ -29037,7 +29033,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (95609, '01', '201106', 'rémunération intervenant/spécialiste', '2011-06-14', '917.00', 'Validée'),
 (95610, '01', '201106', 'location salle conférence', '2011-06-11', '529.00', 'Validée'),
 (95611, '01', '201107', 'location équipement vidéo/sonore', '2011-07-22', '683.00', 'Validée'),
-(95612, '01', '201107', 'location véhicule', '2011-07-25', '252.00', 'Validée'),
+(95612, '01', '201107', 'location véhicule', '2011-07-25', '252.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (95613, '01', '201107', 'traiteur, alimentation, boisson', '2011-07-12', '71.00', 'Validée'),
 (95614, '01', '201109', 'achat de matériel de papèterie', '2011-09-24', '21.00', 'Validée'),
 (95615, '01', '201109', 'repas avec praticien', '2011-09-25', '46.00', 'Validée'),
@@ -29253,8 +29250,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (95825, '01', '201703', 'taxi', '2017-03-27', '61.00', 'Validée'),
 (95826, '01', '201703', 'taxi', '2017-03-16', '57.00', 'Validée'),
 (95827, '01', '201703', 'frais vestimentaire/représentation', '2017-03-26', '351.00', 'Validée'),
-(95828, '01', '201703', 'rémunération intervenant/spécialiste', '2017-03-24', '725.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(95828, '01', '201703', 'rémunération intervenant/spécialiste', '2017-03-24', '725.00', 'Validée'),
 (95829, '01', '201704', 'frais vestimentaire/représentation', '2017-04-01', '291.00', 'Validée'),
 (95830, '01', '201704', 'rémunération intervenant/spécialiste', '2017-04-22', '920.00', 'Validée'),
 (95831, '01', '201704', 'location salle conférence', '2017-04-21', '137.00', 'Validée'),
@@ -29614,7 +29610,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (96185, 'a17', '201010', 'traiteur, alimentation, boisson', '2010-10-08', '346.00', 'Validée'),
 (96186, 'a17', '201011', 'location salle conférence', '2010-11-07', '166.00', 'Validée'),
 (96187, 'a17', '201011', 'achat de matériel de papèterie', '2010-11-09', '10.00', 'Validée'),
-(96188, 'a17', '201011', 'location véhicule', '2010-11-24', '324.00', 'Validée'),
+(96188, 'a17', '201011', 'location véhicule', '2010-11-24', '324.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (96189, 'a17', '201011', 'repas avec praticien', '2010-11-26', '44.00', 'Validée'),
 (96190, 'a17', '201011', 'taxi', '2010-11-10', '60.00', 'Validée'),
 (96191, 'a17', '201012', 'Voyage SNCF', '2010-12-21', '74.00', 'Validée'),
@@ -29814,8 +29811,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (96385, 'a17', '201512', 'location véhicule', '2015-12-19', '432.00', 'Validée'),
 (96386, 'a17', '201512', 'traiteur, alimentation, boisson', '2015-12-24', '150.00', 'Validée'),
 (96387, 'a17', '201512', 'location véhicule', '2015-12-22', '385.00', 'Validée'),
-(96388, 'a17', '201512', 'location équipement vidéo/sonore', '2015-12-24', '126.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(96388, 'a17', '201512', 'location équipement vidéo/sonore', '2015-12-24', '126.00', 'Validée'),
 (96389, 'a17', '201601', 'frais vestimentaire/représentation', '2016-01-16', '410.00', 'Validée'),
 (96390, 'a17', '201601', 'location équipement vidéo/sonore', '2016-01-25', '224.00', 'Validée'),
 (96391, 'a17', '201601', 'location salle conférence', '2016-01-16', '590.00', 'Validée'),
@@ -30195,7 +30191,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (96765, 'a93', '201004', 'location équipement vidéo/sonore', '2010-04-28', '666.00', 'Validée'),
 (96766, 'a93', '201004', 'traiteur, alimentation, boisson', '2010-04-22', '181.00', 'Validée'),
 (96767, 'a93', '201005', 'repas avec praticien', '2010-05-15', '35.00', 'Validée'),
-(96768, 'a93', '201005', 'taxi', '2010-05-01', '24.00', 'Validée'),
+(96768, 'a93', '201005', 'taxi', '2010-05-01', '24.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (96769, 'a93', '201005', 'rémunération intervenant/spécialiste', '2010-05-07', '624.00', 'Validée'),
 (96770, 'a93', '201005', 'location véhicule', '2010-05-04', '213.00', 'Validée'),
 (96771, 'a93', '201005', 'location salle conférence', '2010-05-17', '235.00', 'Validée'),
@@ -30380,8 +30377,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (96950, 'a93', '201504', 'Voyage SNCF', '2015-04-28', '43.00', 'Validée'),
 (96951, 'a93', '201504', 'location équipement vidéo/sonore', '2015-04-07', '549.00', 'Validée'),
 (96952, 'a93', '201504', 'location véhicule', '2015-04-06', '395.00', 'Validée'),
-(96953, 'a93', '201504', 'achat de matériel de papèterie', '2015-04-10', '31.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(96953, 'a93', '201504', 'achat de matériel de papèterie', '2015-04-10', '31.00', 'Validée'),
 (96954, 'a93', '201504', 'achat de matériel de papèterie', '2015-04-16', '48.00', 'Validée'),
 (96955, 'a93', '201504', 'location véhicule', '2015-04-28', '390.00', 'Validée'),
 (96956, 'a93', '201505', 'location équipement vidéo/sonore', '2015-05-08', '169.00', 'Validée'),
@@ -30772,7 +30768,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (97341, 'b13', '201705', 'frais vestimentaire/représentation', '2017-05-15', '128.00', 'Validée'),
 (97342, 'b13', '201705', 'location véhicule', '2017-05-08', '180.00', 'Validée'),
 (97343, 'b13', '201705', 'achat de matériel de papèterie', '2017-05-04', '13.00', 'Validée'),
-(97344, 'b13', '201705', 'location équipement vidéo/sonore', '2017-05-07', '698.00', 'Validée'),
+(97344, 'b13', '201705', 'location équipement vidéo/sonore', '2017-05-07', '698.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (97345, 'b13', '201705', 'location véhicule', '2017-05-22', '257.00', 'Validée'),
 (97346, 'b13', '201706', 'rémunération intervenant/spécialiste', '2017-06-26', '970.00', 'Validée'),
 (97347, 'b13', '201706', 'rémunération intervenant/spécialiste', '2017-06-04', '349.00', 'Validée'),
@@ -30942,8 +30939,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (97511, 'b16', '201311', 'rémunération intervenant/spécialiste', '2013-11-25', '974.00', 'Validée'),
 (97512, 'b16', '201312', 'rémunération intervenant/spécialiste', '2013-12-02', '958.00', 'Validée'),
 (97513, 'b16', '201312', 'taxi', '2013-12-08', '59.00', 'Validée'),
-(97514, 'b16', '201312', 'Voyage SNCF', '2013-12-03', '106.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(97514, 'b16', '201312', 'Voyage SNCF', '2013-12-03', '106.00', 'Validée'),
 (97515, 'b16', '201312', 'repas avec praticien', '2013-12-07', '33.00', 'Validée'),
 (97516, 'b16', '201401', 'taxi', '2014-01-23', '43.00', 'Validée'),
 (97517, 'b16', '201401', 'location équipement vidéo/sonore', '2014-01-24', '428.00', 'Validée'),
@@ -31347,7 +31343,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (97915, 'b19', '201603', 'Voyage SNCF', '2016-03-02', '99.00', 'Validée'),
 (97916, 'b19', '201603', 'achat de matériel de papèterie', '2016-03-05', '47.00', 'Validée'),
 (97917, 'b19', '201603', 'Voyage SNCF', '2016-03-22', '70.00', 'Validée'),
-(97918, 'b19', '201603', 'taxi', '2016-03-12', '66.00', 'Validée'),
+(97918, 'b19', '201603', 'taxi', '2016-03-12', '66.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (97919, 'b19', '201604', 'location véhicule', '2016-04-04', '426.00', 'Validée'),
 (97920, 'b19', '201604', 'taxi', '2016-04-23', '61.00', 'Validée'),
 (97921, 'b19', '201604', 'location véhicule', '2016-04-21', '102.00', 'Validée'),
@@ -31507,8 +31504,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (98075, 'b25', '201110', 'rémunération intervenant/spécialiste', '2011-10-10', '266.00', 'Validée'),
 (98076, 'b25', '201110', 'frais vestimentaire/représentation', '2011-10-27', '95.00', 'Validée'),
 (98077, 'b25', '201110', 'repas avec praticien', '2011-10-21', '41.00', 'Validée'),
-(98078, 'b25', '201110', 'repas avec praticien', '2011-10-17', '40.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(98078, 'b25', '201110', 'repas avec praticien', '2011-10-17', '40.00', 'Validée'),
 (98079, 'b25', '201111', 'location véhicule', '2011-11-25', '338.00', 'Validée'),
 (98080, 'b25', '201111', 'Voyage SNCF', '2011-11-13', '130.00', 'Validée'),
 (98081, 'b25', '201111', 'location équipement vidéo/sonore', '2011-11-05', '203.00', 'Validée'),
@@ -31927,7 +31923,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (98494, 'b28', '201502', 'traiteur, alimentation, boisson', '2015-02-17', '446.00', 'Validée'),
 (98495, 'b28', '201502', 'location véhicule', '2015-02-18', '164.00', 'Validée'),
 (98496, 'b28', '201502', 'location salle conférence', '2015-02-03', '508.00', 'Validée'),
-(98497, 'b28', '201502', 'traiteur, alimentation, boisson', '2015-02-14', '210.00', 'Validée'),
+(98497, 'b28', '201502', 'traiteur, alimentation, boisson', '2015-02-14', '210.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (98498, 'b28', '201502', 'rémunération intervenant/spécialiste', '2015-02-10', '1122.00', 'Validée'),
 (98499, 'b28', '201503', 'traiteur, alimentation, boisson', '2015-03-06', '448.00', 'Validée'),
 (98500, 'b28', '201503', 'frais vestimentaire/représentation', '2015-03-23', '214.00', 'Validée'),
@@ -32072,8 +32069,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (98639, 'b34', '201007', 'traiteur, alimentation, boisson', '2010-07-25', '448.00', 'Validée'),
 (98640, 'b34', '201007', 'traiteur, alimentation, boisson', '2010-07-16', '448.00', 'Validée'),
 (98641, 'b34', '201008', 'achat de matériel de papèterie', '2010-08-10', '39.00', 'Validée'),
-(98642, 'b34', '201008', 'frais vestimentaire/représentation', '2010-08-22', '244.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(98642, 'b34', '201008', 'frais vestimentaire/représentation', '2010-08-22', '244.00', 'Validée'),
 (98643, 'b34', '201008', 'repas avec praticien', '2010-08-03', '31.00', 'Validée'),
 (98644, 'b34', '201009', 'traiteur, alimentation, boisson', '2010-09-21', '439.00', 'Validée'),
 (98645, 'b34', '201009', 'achat de matériel de papèterie', '2010-09-13', '40.00', 'Validée'),
@@ -32502,7 +32498,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (99068, 'b4', '201309', 'location équipement vidéo/sonore', '2013-09-25', '423.00', 'Validée'),
 (99069, 'b4', '201309', 'frais vestimentaire/représentation', '2013-09-08', '294.00', 'Validée'),
 (99070, 'b4', '201309', 'taxi', '2013-09-26', '59.00', 'Validée'),
-(99071, 'b4', '201309', 'location salle conférence', '2013-09-16', '397.00', 'Validée'),
+(99071, 'b4', '201309', 'location salle conférence', '2013-09-16', '397.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (99072, 'b4', '201310', 'traiteur, alimentation, boisson', '2013-10-03', '196.00', 'Validée'),
 (99073, 'b4', '201311', 'achat de matériel de papèterie', '2013-11-17', '47.00', 'Validée'),
 (99074, 'b4', '201311', 'location véhicule', '2013-11-15', '197.00', 'Validée'),
@@ -32638,8 +32635,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (99204, 'b4', '201708', 'location équipement vidéo/sonore', '2017-08-07', '423.00', 'Validée'),
 (99205, 'b4', '201708', 'location salle conférence', '2017-08-05', '292.00', 'Validée'),
 (99206, 'b4', '201709', 'location véhicule', '2017-09-06', '324.00', 'Validée'),
-(99207, 'b4', '201710', 'frais vestimentaire/représentation', '2017-10-02', '148.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(99207, 'b4', '201710', 'frais vestimentaire/représentation', '2017-10-02', '148.00', 'Validée'),
 (99208, 'b4', '201710', 'traiteur, alimentation, boisson', '2017-10-11', '213.00', 'Validée'),
 (99209, 'b4', '201710', 'frais vestimentaire/représentation', '2017-10-06', '197.00', 'Validée'),
 (99210, 'b4', '201710', 'traiteur, alimentation, boisson', '2017-10-11', '128.00', 'Validée'),
@@ -33082,7 +33078,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (99647, 'b59', '201312', 'frais vestimentaire/représentation', '2013-12-21', '232.00', 'Validée'),
 (99648, 'b59', '201312', 'achat de matériel de papèterie', '2013-12-19', '39.00', 'Validée'),
 (99649, 'b59', '201401', 'location salle conférence', '2014-01-04', '435.00', 'Validée'),
-(99650, 'b59', '201402', 'location salle conférence', '2014-02-17', '341.00', 'Validée'),
+(99650, 'b59', '201402', 'location salle conférence', '2014-02-17', '341.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (99651, 'b59', '201403', 'traiteur, alimentation, boisson', '2014-03-12', '297.00', 'Validée'),
 (99652, 'b59', '201403', 'location équipement vidéo/sonore', '2014-03-13', '831.00', 'Validée'),
 (99653, 'b59', '201404', 'location salle conférence', '2014-04-24', '381.00', 'Validée'),
@@ -33202,8 +33199,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (99767, 'b59', '201706', 'Voyage SNCF', '2017-06-21', '103.00', 'Validée'),
 (99768, 'b59', '201706', 'location véhicule', '2017-06-19', '404.00', 'Validée'),
 (99769, 'b59', '201706', 'location salle conférence', '2017-06-14', '611.00', 'Validée'),
-(99770, 'b59', '201707', 'frais vestimentaire/représentation', '2017-07-04', '386.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(99770, 'b59', '201707', 'frais vestimentaire/représentation', '2017-07-04', '386.00', 'Validée'),
 (99771, 'b59', '201707', 'repas avec praticien', '2017-07-09', '32.00', 'Validée'),
 (99772, 'b59', '201707', 'achat de matériel de papèterie', '2017-07-26', '44.00', 'Validée'),
 (99773, 'b59', '201708', 'location salle conférence', '2017-08-26', '554.00', 'Validée'),
@@ -33657,7 +33653,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (100221, 'c3', '201405', 'achat de matériel de papèterie', '2014-05-03', '41.00', 'Validée'),
 (100222, 'c3', '201405', 'achat de matériel de papèterie', '2014-05-05', '37.00', 'Validée'),
 (100223, 'c3', '201406', 'location salle conférence', '2014-06-20', '318.00', 'Validée'),
-(100224, 'c3', '201406', 'taxi', '2014-06-26', '71.00', 'Validée'),
+(100224, 'c3', '201406', 'taxi', '2014-06-26', '71.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (100225, 'c3', '201406', 'rémunération intervenant/spécialiste', '2014-06-13', '887.00', 'Validée'),
 (100226, 'c3', '201406', 'traiteur, alimentation, boisson', '2014-06-03', '424.00', 'Validée'),
 (100227, 'c3', '201406', 'location véhicule', '2014-06-25', '438.00', 'Validée'),
@@ -33763,8 +33760,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (100327, 'c3', '201701', 'traiteur, alimentation, boisson', '2017-01-24', '307.00', 'Validée'),
 (100328, 'c3', '201701', 'achat de matériel de papèterie', '2017-01-26', '29.00', 'Validée'),
 (100329, 'c3', '201701', 'Voyage SNCF', '2017-01-04', '78.00', 'Validée'),
-(100330, 'c3', '201701', 'achat de matériel de papèterie', '2017-01-23', '21.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(100330, 'c3', '201701', 'achat de matériel de papèterie', '2017-01-23', '21.00', 'Validée'),
 (100331, 'c3', '201702', 'traiteur, alimentation, boisson', '2017-02-10', '442.00', 'Validée'),
 (100332, 'c3', '201702', 'Voyage SNCF', '2017-02-27', '148.00', 'Validée'),
 (100333, 'c3', '201702', 'Voyage SNCF', '2017-02-14', '134.00', 'Validée'),
@@ -34229,7 +34225,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (100792, 'd13', '201310', 'frais vestimentaire/représentation', '2013-10-27', '52.00', 'Validée'),
 (100793, 'd13', '201310', 'Voyage SNCF', '2013-10-18', '124.00', 'Validée'),
 (100794, 'd13', '201311', 'location véhicule', '2013-11-04', '385.00', 'Validée'),
-(100795, 'd13', '201311', 'achat de matériel de papèterie', '2013-11-04', '29.00', 'Validée'),
+(100795, 'd13', '201311', 'achat de matériel de papèterie', '2013-11-04', '29.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (100796, 'd13', '201311', 'Voyage SNCF', '2013-11-26', '97.00', 'Validée'),
 (100797, 'd13', '201311', 'repas avec praticien', '2013-11-24', '37.00', 'Validée'),
 (100798, 'd13', '201312', 'Voyage SNCF', '2013-12-17', '112.00', 'Validée'),
@@ -34323,8 +34320,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (100886, 'd13', '201604', 'Voyage SNCF', '2016-04-07', '121.00', 'Validée'),
 (100887, 'd13', '201605', 'repas avec praticien', '2016-05-16', '41.00', 'Validée'),
 (100888, 'd13', '201605', 'rémunération intervenant/spécialiste', '2016-05-01', '865.00', 'Validée'),
-(100889, 'd13', '201605', 'achat de matériel de papèterie', '2016-05-17', '28.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(100889, 'd13', '201605', 'achat de matériel de papèterie', '2016-05-17', '28.00', 'Validée'),
 (100890, 'd13', '201606', 'repas avec praticien', '2016-06-17', '34.00', 'Validée'),
 (100891, 'd13', '201607', 'traiteur, alimentation, boisson', '2016-07-25', '93.00', 'Validée'),
 (100892, 'd13', '201608', 'location véhicule', '2016-08-04', '370.00', 'Validée'),
@@ -34800,7 +34796,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (101362, 'e22', '201404', 'rémunération intervenant/spécialiste', '2014-04-06', '628.00', 'Validée'),
 (101363, 'e22', '201404', 'location équipement vidéo/sonore', '2014-04-01', '816.00', 'Validée'),
 (101364, 'e22', '201404', 'frais vestimentaire/représentation', '2014-04-04', '343.00', 'Validée'),
-(101365, 'e22', '201404', 'repas avec praticien', '2014-04-22', '38.00', 'Validée'),
+(101365, 'e22', '201404', 'repas avec praticien', '2014-04-22', '38.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (101366, 'e22', '201405', 'rémunération intervenant/spécialiste', '2014-05-25', '753.00', 'Validée'),
 (101367, 'e22', '201405', 'repas avec praticien', '2014-05-17', '44.00', 'Validée'),
 (101368, 'e22', '201406', 'Voyage SNCF', '2014-06-14', '65.00', 'Validée'),
@@ -34882,8 +34879,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (101444, 'e22', '201607', 'Voyage SNCF', '2016-07-09', '136.00', 'Validée'),
 (101445, 'e22', '201607', 'Voyage SNCF', '2016-07-03', '46.00', 'Validée'),
 (101446, 'e22', '201607', 'location salle conférence', '2016-07-19', '620.00', 'Validée'),
-(101447, 'e22', '201607', 'repas avec praticien', '2016-07-21', '50.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(101447, 'e22', '201607', 'repas avec praticien', '2016-07-21', '50.00', 'Validée'),
 (101448, 'e22', '201608', 'location salle conférence', '2016-08-07', '430.00', 'Validée'),
 (101449, 'e22', '201608', 'traiteur, alimentation, boisson', '2016-08-16', '79.00', 'Validée'),
 (101450, 'e22', '201608', 'taxi', '2016-08-26', '47.00', 'Validée'),
@@ -35372,7 +35368,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (101933, 'e39', '201302', 'repas avec praticien', '2013-02-08', '32.00', 'Validée'),
 (101934, 'e39', '201303', 'Voyage SNCF', '2013-03-11', '111.00', 'Validée'),
 (101935, 'e39', '201303', 'location véhicule', '2013-03-22', '358.00', 'Validée'),
-(101936, 'e39', '201303', 'repas avec praticien', '2013-03-08', '37.00', 'Validée'),
+(101936, 'e39', '201303', 'repas avec praticien', '2013-03-08', '37.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (101937, 'e39', '201303', 'Voyage SNCF', '2013-03-03', '82.00', 'Validée'),
 (101938, 'e39', '201303', 'frais vestimentaire/représentation', '2013-03-10', '191.00', 'Validée'),
 (101939, 'e39', '201304', 'taxi', '2013-04-27', '59.00', 'Validée'),
@@ -35441,8 +35438,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (102002, 'e39', '201412', 'Voyage SNCF', '2014-12-28', '59.00', 'Validée'),
 (102003, 'e39', '201412', 'location équipement vidéo/sonore', '2014-12-25', '476.00', 'Validée'),
 (102004, 'e39', '201412', 'repas avec praticien', '2014-12-14', '40.00', 'Validée'),
-(102005, 'e39', '201412', 'achat de matériel de papèterie', '2014-12-11', '11.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(102005, 'e39', '201412', 'achat de matériel de papèterie', '2014-12-11', '11.00', 'Validée'),
 (102006, 'e39', '201412', 'achat de matériel de papèterie', '2014-12-10', '30.00', 'Validée'),
 (102007, 'e39', '201501', 'rémunération intervenant/spécialiste', '2015-01-27', '907.00', 'Validée'),
 (102008, 'e39', '201501', 'Voyage SNCF', '2015-01-03', '134.00', 'Validée'),
@@ -35949,7 +35945,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (102509, 'e5', '201211', 'taxi', '2012-11-03', '42.00', 'Validée'),
 (102510, 'e5', '201212', 'Voyage SNCF', '2012-12-23', '138.00', 'Validée'),
 (102511, 'e5', '201212', 'rémunération intervenant/spécialiste', '2012-12-16', '877.00', 'Validée'),
-(102512, 'e5', '201212', 'location véhicule', '2012-12-12', '343.00', 'Validée'),
+(102512, 'e5', '201212', 'location véhicule', '2012-12-12', '343.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (102513, 'e5', '201212', 'traiteur, alimentation, boisson', '2012-12-11', '440.00', 'Validée'),
 (102514, 'e5', '201301', 'achat de matériel de papèterie', '2013-01-14', '44.00', 'Validée'),
 (102515, 'e5', '201301', 'rémunération intervenant/spécialiste', '2013-01-25', '308.00', 'Validée'),
@@ -36006,8 +36003,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (102566, 'e5', '201406', 'rémunération intervenant/spécialiste', '2014-06-25', '374.00', 'Validée'),
 (102567, 'e5', '201407', 'location équipement vidéo/sonore', '2014-07-15', '353.00', 'Validée'),
 (102568, 'e5', '201407', 'rémunération intervenant/spécialiste', '2014-07-18', '332.00', 'Validée'),
-(102569, 'e5', '201407', 'taxi', '2014-07-12', '42.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(102569, 'e5', '201407', 'taxi', '2014-07-12', '42.00', 'Validée'),
 (102570, 'e5', '201407', 'location salle conférence', '2014-07-14', '345.00', 'Validée'),
 (102571, 'e5', '201407', 'location salle conférence', '2014-07-15', '150.00', 'Validée'),
 (102572, 'e5', '201407', 'taxi', '2014-07-11', '46.00', 'Validée'),
@@ -36521,7 +36517,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (103080, 'f21', '201109', 'location équipement vidéo/sonore', '2011-09-02', '462.00', 'Validée'),
 (103081, 'f21', '201110', 'location véhicule', '2011-10-03', '442.00', 'Validée'),
 (103082, 'f21', '201111', 'achat de matériel de papèterie', '2011-11-05', '31.00', 'Validée'),
-(103083, 'f21', '201111', 'location équipement vidéo/sonore', '2011-11-04', '533.00', 'Validée'),
+(103083, 'f21', '201111', 'location équipement vidéo/sonore', '2011-11-04', '533.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (103084, 'f21', '201112', 'frais vestimentaire/représentation', '2011-12-28', '163.00', 'Validée'),
 (103085, 'f21', '201201', 'repas avec praticien', '2012-01-12', '39.00', 'Validée'),
 (103086, 'f21', '201202', 'repas avec praticien', '2012-02-02', '41.00', 'Validée'),
@@ -36564,8 +36561,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (103123, 'f21', '201306', 'location équipement vidéo/sonore', '2013-06-04', '805.00', 'Validée'),
 (103124, 'f21', '201306', 'location véhicule', '2013-06-24', '170.00', 'Validée'),
 (103125, 'f21', '201307', 'traiteur, alimentation, boisson', '2013-07-28', '300.00', 'Validée'),
-(103126, 'f21', '201307', 'location véhicule', '2013-07-15', '282.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(103126, 'f21', '201307', 'location véhicule', '2013-07-15', '282.00', 'Validée'),
 (103127, 'f21', '201307', 'location salle conférence', '2013-07-19', '619.00', 'Validée'),
 (103128, 'f21', '201307', 'taxi', '2013-07-06', '53.00', 'Validée'),
 (103129, 'f21', '201307', 'frais vestimentaire/représentation', '2013-07-11', '347.00', 'Validée'),
@@ -37092,7 +37088,8 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (103650, 'f4', '201101', 'achat de matériel de papèterie', '2011-01-24', '24.00', 'Validée'),
 (103651, 'f4', '201101', 'frais vestimentaire/représentation', '2011-01-23', '271.00', 'Validée'),
 (103652, 'f4', '201102', 'rémunération intervenant/spécialiste', '2011-02-15', '913.00', 'Validée'),
-(103653, 'f4', '201102', 'achat de matériel de papèterie', '2011-02-11', '42.00', 'Validée'),
+(103653, 'f4', '201102', 'achat de matériel de papèterie', '2011-02-11', '42.00', 'Validée');
+INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
 (103654, 'f4', '201102', 'Voyage SNCF', '2011-02-26', '100.00', 'Validée'),
 (103655, 'f4', '201102', 'frais vestimentaire/représentation', '2011-02-04', '115.00', 'Validée'),
 (103656, 'f4', '201103', 'rémunération intervenant/spécialiste', '2011-03-04', '855.00', 'Validée'),
@@ -37123,8 +37120,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (103681, 'f4', '201110', 'frais vestimentaire/représentation', '2011-10-01', '49.00', 'Validée'),
 (103682, 'f4', '201111', 'rémunération intervenant/spécialiste', '2011-11-16', '531.00', 'Validée'),
 (103683, 'f4', '201112', 'frais vestimentaire/représentation', '2011-12-24', '185.00', 'Validée'),
-(103684, 'f4', '201112', 'location véhicule', '2011-12-08', '250.00', 'Validée');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`, `Etat`) VALUES
+(103684, 'f4', '201112', 'location véhicule', '2011-12-08', '250.00', 'Validée'),
 (103685, 'f4', '201201', 'Voyage SNCF', '2012-01-13', '131.00', 'Validée'),
 (103686, 'f4', '201201', 'Voyage SNCF', '2012-01-20', '95.00', 'Validée'),
 (103687, 'f4', '201201', 'location véhicule', '2012-01-17', '292.00', 'Validée'),
@@ -37364,7 +37360,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 -- Structure de la table `user`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
+CREATE TABLE `user` (
   `id` char(4) NOT NULL,
   `nom` char(30) DEFAULT NULL,
   `prenom` char(30) DEFAULT NULL,
@@ -37374,8 +37370,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `cp` char(5) DEFAULT NULL,
   `ville` char(30) DEFAULT NULL,
   `dateEmbauche` date DEFAULT NULL,
-  `type` varchar(20) NOT NULL,
-  PRIMARY KEY (`id`)
+  `type` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -37383,7 +37378,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp`, `ville`, `dateEmbauche`, `type`) VALUES
-('01', 'KUO', 'Alexandre', 'akuo', '0000', '11, rue saint-yves', '75014', 'Paris', '2017-09-20', 'comptable'),
+('01', 'ISKRANE', 'Kamel', 'kamel', 'kamel', '17 rue Richard Lenoir', '75014', 'Paris', '2017-09-20', 'comptable'),
 ('a131', 'Villechalane', 'Louis', '2', '2', '8 rue des Charmes', '46000', 'Cahors', '2005-12-21', 'visiteur'),
 ('a17', 'Andre', 'David', 'dandre', 'oppg5', '1 rue Petit', '46200', 'Lalbenque', '1998-11-23', 'visiteur'),
 ('a55', 'Bedos', 'Christian', 'cbedos', 'gmhxd', '1 rue Peranud', '46250', 'Montcuq', '1995-01-12', 'visiteur'),
@@ -37413,6 +37408,58 @@ INSERT INTO `user` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp`, `vil
 ('f4', 'Gest', 'Alain', 'agest', 'dywvt', '30 avenue de la mer', '13025', 'Berre', '1985-11-01', 'visiteur');
 
 --
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `etat`
+--
+ALTER TABLE `etat`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `fichefrais`
+--
+ALTER TABLE `fichefrais`
+  ADD PRIMARY KEY (`idVisiteur`,`mois`),
+  ADD KEY `idEtat` (`idEtat`);
+
+--
+-- Index pour la table `fraisforfait`
+--
+ALTER TABLE `fraisforfait`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `lignefraisforfait`
+--
+ALTER TABLE `lignefraisforfait`
+  ADD PRIMARY KEY (`idVisiteur`,`mois`,`idFraisForfait`),
+  ADD KEY `idFraisForfait` (`idFraisForfait`);
+
+--
+-- Index pour la table `lignefraishorsforfait`
+--
+ALTER TABLE `lignefraishorsforfait`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idVisiteur` (`idVisiteur`,`mois`);
+
+--
+-- Index pour la table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `lignefraishorsforfait`
+--
+ALTER TABLE `lignefraishorsforfait`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103917;
+--
 -- Contraintes pour les tables exportées
 --
 
@@ -37427,14 +37474,14 @@ ALTER TABLE `fichefrais`
 -- Contraintes pour la table `lignefraisforfait`
 --
 ALTER TABLE `lignefraisforfait`
-  ADD CONSTRAINT `lignefraisforfait_ibfk_1` FOREIGN KEY (`idVisiteur`, `mois`) REFERENCES `fichefrais` (`idVisiteur`, `mois`),
+  ADD CONSTRAINT `lignefraisforfait_ibfk_1` FOREIGN KEY (`idVisiteur`,`mois`) REFERENCES `fichefrais` (`idVisiteur`, `mois`),
   ADD CONSTRAINT `lignefraisforfait_ibfk_2` FOREIGN KEY (`idFraisForfait`) REFERENCES `fraisforfait` (`id`);
 
 --
 -- Contraintes pour la table `lignefraishorsforfait`
 --
 ALTER TABLE `lignefraishorsforfait`
-  ADD CONSTRAINT `lignefraishorsforfait_ibfk_1` FOREIGN KEY (`idVisiteur`, `mois`) REFERENCES `fichefrais` (`idVisiteur`, `mois`);
+  ADD CONSTRAINT `lignefraishorsforfait_ibfk_1` FOREIGN KEY (`idVisiteur`,`mois`) REFERENCES `fichefrais` (`idVisiteur`, `mois`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

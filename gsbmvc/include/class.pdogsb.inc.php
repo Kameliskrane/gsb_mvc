@@ -428,7 +428,7 @@ class PdoGsb {
      */
     public function getFichesValidés() {
         // on propose tous les visiteurs
-        $req = "select user.id as id, fichefrais.mois as mois, user.nom as nom, user.prenom as prenom from user,fichefrais where user.id=fichefrais.idVisiteur and idEtat='VA'";
+        $req = "select user.id as id, fichefrais.mois as mois, user.nom as nom, user.prenom as prenom from user,fichefrais where user.id=fichefrais.idVisiteur and idEtat='VA' ORDER BY mois DESC";
         $idJeuVis = PdoGsb::$monPdo->query($req);
         $lgVis = $idJeuVis->fetch();
         while (is_array($lgVis)) {
@@ -439,6 +439,23 @@ class PdoGsb {
             $lgVis = $idJeuVis->fetch();
         }
         $idJeuVis->closeCursor();
+    }
+
+    public function getLeClassementUser() {
+
+        $req = "Select user.id , user.nom , user.prenom , SUM(fichefrais.montantValide)from user join fichefrais on (user.id = fichefrais.idVisiteur) group by user.id, user.nom , user.prenom Order by SUM(fichefrais.montantValide)";
+        $classement = PdoGsb::$monPdo->query($req);
+        $tabClassement = $classement->fetchall();
+        return $tabClassement ;
+    }
+    
+    public function getLeDetailDuClassement($idUser){
+        $req = "select * from fichefrais where idVisiteur = '".$idUser."'" ;
+        $detail = PdoGsb::$monPdo->query($req);
+        $ToutLesDetail = $detail->fetchall();
+        return $ToutLesDetail;
+        //var_dump($ToutLesDetail);
+        //$detail->closeCursor();
     }
 
 }
